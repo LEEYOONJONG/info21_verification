@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/info21.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="page-header">
+        <h1><a href="/">Kyunghee University</a></h1>
+        <h3><a href="/">info21 Verification System</a></h3>
+    </div>
+    <div class="parent">
+        <div class="khuimg">
+            <img src="https://www.khu.ac.kr/kor/upload/catalog/catalog_image_1574128628704.jpg">
+        </div>
+        <div class="content">
+        {% if errors %}
+            {% for error in errors %}
+                <li style="color: red;">{{error}}</li>
+            {% endfor %}
+        {% endif %}
+            <form action="/search" method="get" class="content_1">
+            <div class="form-group">
+                <label>ID</label>
+                <input type="text" class="form-control" name="infoId" placeholder="아이디를 입력하세요.">
+            </div>
+            <div class="form-group">
+                <label>PW</label>
+                <input type="password" class="form-control" name="infoPw" placeholder="비밀번호를 입력하세요.">
+            </div>
+            <button type="submit" class="btn btn-outline-danger" value="Search">로그인</button>
+            </form>
+        <!-- 이 파일은 가이드에서     search_form.html   이다.-->
+            <div class="content_2">
+                <b>안내</b>
+                <ul>
+                    <li style="font-size: 12px">아이디와 비밀번호는 절대 저장되지 않습니다.</li>
+                    <li style="font-size: 12px">이 사이트는 사용자 식별 및 성적처리를 위해 이름, 학번, 학과, 성적 등이 서버에 저장되며, 차후 업데이트 시 이름도 저장되지 않습니다.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>
